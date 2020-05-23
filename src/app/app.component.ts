@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
  
 })
 export class AppComponent {
-  pageHeader:string ="Employee Details";
+  pageHeader:string ="Employee Details App";
 }
