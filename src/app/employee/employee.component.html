@@ -16,25 +16,23 @@
                 <td>Last Name</td>
                 <td>{{lastName}}</td>
             </tr>
-            <tr *ngIf='showDetails'>
+            <tr>
                 <td>Gender</td>
                 <td>{{gender}}</td>
             </tr>
-            <tr *ngIf='showDetails'>
+            <tr >
                 <td>Age</td>
                 <td>{{age}}</td>
             </tr>
             <tr >
                 <td>Hello</td>
-                <td><input type="text" [(ngModel)]="Hello"> </td>
-                {{Hello}}
+                <td><input type="text" [(ngModel)]="SimpleInput"> </td>              
+              
             </tr>
+            <tr>{{SimpleInput}}</tr>
         </tbody>
     </table>
     <br />
-    <!-- <button (click)='toggleDetails()'>
-        {{showDetails ? 'Hide' : 'Show'}} Details
-    </button> -->
-    
+   
     
 </div>

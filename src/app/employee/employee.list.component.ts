@@ -9,9 +9,11 @@ import { IEmployee } from '../interface/employee';
 export class EmployeeListCompoent {
 
 
+    userText:string;
     
   selectedEmployeeCountRadioButton:string  ='All';
 
+  SimpleInput:string;
     employees: IEmployee[];
 
     constructor() {

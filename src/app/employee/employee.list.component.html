@@ -2,10 +2,16 @@
 [all]="getTotalEmployeeCount()"
  [male]="getTotalMaleEmployeeCount()"
  [female]="getTotalFemaleEmployeeCount()" 
- (countRadioButtChanged)="onEmployeeCountRadioButtonChange($event)">
+ (countRadioButtChanged)="onEmployeeCountRadioButtonChange($event)"
+ [SimpleInput]="userText"
+ >
 </app-employee-count>
 
 <br/>
+<tr>
+    <input type="text"  [(ngModel)]="userText">
+    {{userText}}
+</tr>
 <table class="table table-striped">
     <thead cass="thead-dark">
         <tr>           

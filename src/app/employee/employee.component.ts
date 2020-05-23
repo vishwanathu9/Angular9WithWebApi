@@ -1,33 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
-export class EmployeeComponent implements OnInit {
+export class EmployeeComponent implements OnChanges,OnInit {
 
-  firstName:string ='Tom';
-  lastName :string ='Carry';
-  gender:string ='Male';
-  age:number=20;
-  showDetails:boolean=false;
-  Hello:string;
+  firstName: string = 'Tom';
+  lastName: string = 'Carry';
+  gender: string = 'Male';
+  age: number = 20;
+  showDetails: boolean = false;
 
-  toggleDetails():void{
-    this.showDetails=!this.showDetails;
+  @Input()  SimpleInput: string;
+
+  
+    constructor() {     }
+
+
+  ngOnChanges(changes: SimpleChanges) {
+
+    for (let propertyName in changes) {
+      let change = changes[propertyName];
+      let current = JSON.stringify(change.currentValue);
+      let previous = JSON.stringify(change.previousValue);
+
+      console.log(propertyName + ' :Currentvalue= ' + current + ': PreviousValue=' + previous);
+    }
   }
-
-  onClick():void{
-    alert("button clicked");
-  };
-  constructor() { }
-
  
-
   ngOnInit(): void {
-
-   
-  }
-
+}
 }
