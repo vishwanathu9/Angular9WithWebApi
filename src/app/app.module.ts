@@ -17,7 +17,8 @@ import { EmployeeCountComponent } from './employee-count/employee-count.componen
     EmployeeComponent,
     EmployeeListCompoent,
     EmployeeTitlePipe,
-    EmployeeCountComponent 
+    EmployeeCountComponent ,
+    
   
   ],
   imports: [
