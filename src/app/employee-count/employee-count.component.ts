@@ -15,9 +15,6 @@ export class EmployeeCountComponent implements OnChanges, OnInit {
   @Input() male: number;
   @Input() female: number;
 
-
-
-
   selectedRadioButtonValue: string = 'All';
 
   @Output()
