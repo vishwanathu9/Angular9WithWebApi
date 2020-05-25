@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IEmployee } from '../interface/employee';
 import { EmployeeService } from './employeeservices/employee.service';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { AuthService } from '../login/authservice';
+import { Router } from '@angular/router';
 
 @Component({
 
@@ -13,11 +15,17 @@ export class EmployeeListCompoent implements OnInit {
     selectedEmployeeCountRadioButton: string = 'All';
     employees: IEmployee[];
 
-    constructor(private _employeeService: EmployeeService) {
+    constructor(private route:Router,
+        private _authService:AuthService,
+         private _employeeService: EmployeeService) {
     }    
  
-
+displayToken:string;
     ngOnInit() {
+
+        this.displayToken=this._authService.AccessToken;
+        console.log(this.displayToken);
+
         this._employeeService.getEmployees()
             .subscribe((data: IEmployee[]) => {
                 this.employees = data;

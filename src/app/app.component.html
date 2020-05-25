@@ -1,17 +1,16 @@
 <div class="container"> 
   <h1 class="display-4 text-center">{{pageHeader}}</h1>
   <hr>
-  <div class="row">
-    <div class="table border=1">
-   
-      <tr class="row">
-        <td class="col-md-4">
-          <app-employee ></app-employee>
-        </td>
-        <td class="col-md-8">
-          <list-employee></list-employee>
-        </td>
-      </tr>
+  <div style="padding:5px">
+    <ul class="nav nav-tabs">
+        <li routerLinkActive="active">
+            <a routerLink="login">Home</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="employees">Employees</a>
+        </li>
+    </ul>
+    <br/>
+    <router-outlet></router-outlet>
 </div>
-</div>
-</div>
+

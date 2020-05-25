@@ -1,0 +1,32 @@
+<div>
+    <h1>Login Page</h1>
+    <table>
+<tr>
+   <td>
+       UserName:
+   </td>
+   <td>
+       <input type="text" name="UserName" [(ngModel)]="username">
+       {{username}}
+   </td>
+</tr>
+<tr>
+    <td>
+        Password:
+    </td>
+    <td>
+        <input type="text" name="password" [(ngModel)]="password">
+        {{password}}
+    </td>
+ </tr>
+ <tr>
+     <td>
+         <input type="button" value="Login" (click)="doLogin(username,password)" />
+     </td>
+ </tr>
+    </table>
+    
+</div>
+<div *ngIf="isLoginError" class="red-text center error-message">
+    <i class="material-icons">error</i> Incorrect username or password
+</div>

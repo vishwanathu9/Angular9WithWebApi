@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IEmployee } from 'src/app/interface/employee';
-import { BehaviorSubject } from 'rxjs';
+import { observable,throwError } from 'rxjs';
+
 
 
 @Injectable()
 export class EmployeeService {
-
-
 
     constructor(private _http: HttpClient) { }
 
@@ -15,7 +14,9 @@ export class EmployeeService {
 
     public getEmployees() {
         return this._http.get(this.REST_API_SERVER);
+       
     }
+
 
 }
 

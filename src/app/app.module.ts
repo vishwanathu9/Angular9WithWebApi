@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 
 import { AppComponent } from './app.component';
@@ -10,8 +11,18 @@ import { EmployeeListCompoent } from './employee/employee.list.component';
 import { EmployeeTitlePipe } from './pipes/employeeTitle.Pipe';
 import { EmployeeCountComponent } from './employee-count/employee-count.component';
 import { EmployeeService } from './employee/employeeservices/employee.service';
+import { ErrorIntercept } from './Interceptors/error.interceptor';
+import { LoginComponent } from './login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthService } from './login/authservice';
 
 
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'employees', component: EmployeeListCompoent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  
+];
 
 @NgModule({
   declarations: [
@@ -19,16 +30,21 @@ import { EmployeeService } from './employee/employeeservices/employee.service';
     EmployeeComponent,
     EmployeeListCompoent,
     EmployeeTitlePipe,
-    EmployeeCountComponent ,
-    
-  
+    EmployeeCountComponent,
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
+
   ],
-  providers: [EmployeeService],
+  providers: [
+    EmployeeService,AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorIntercept, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
